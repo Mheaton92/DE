@@ -2,4 +2,5 @@
 
 [ -f "$HOME/.xprofile" ] && . ~/.xprofile
 
-exec dwm
+#exec dwm
+exec i3
