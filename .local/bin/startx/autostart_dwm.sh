@@ -16,5 +16,5 @@ compton -bcCG --shadow-radius 10 -l -10 -t -10 --shadow-red 0.8 --shadow-green 0
 
 sh ~/.scripts/startx/dwm_status.sh
 
-exec dwm
-#sh /home/matthew/repos/dwm/dwm_relaunch.sh
+#exec dwm
+sh /home/matthew/.local/bin/startx/dwm_relaunch.sh
