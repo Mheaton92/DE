@@ -27,11 +27,9 @@ alias ka="killall" \
 	lsp="pacman -Qett --color=always | less" \
 	ffmpeg="ffmpeg -hide_banner" \
 	nfch="neofetch" \
-	sfch="screenfetch" \
 	mkd="mkdir -pv" \
 	venv="sh ~/.scripts/tools/venv.sh" \
 	weather="curl wttr.in" \
-	nyan="nyancat" \
 	pacfiles='pacman -Fs' \
 	pacfileupg='sudo pacman -Fy' \
 	pacin='sudo pacman -S' \
@@ -53,6 +51,9 @@ alias ka="killall" \
 	pacupg='sudo pacman -Syu' \
 	spt='speedtest' \
 	kbl='feh ~/.config/kblayout.png' \
+	clean="make clean && rm -f config.h && git reset --hard origin/master" \
+	install="make && sudo make clean install" \
+
 
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
 
