@@ -1,0 +1,4 @@
+#! /bin/sh
+# Gives dmenu list of text editors
+
+echo -e "subl3\npycharm\nnvim" | dmenu -p "Choose a text editor" | $SHELL
