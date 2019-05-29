@@ -1642,3 +1642,34 @@
 🏴󠁧󠁢󠁥󠁮󠁧󠁿 flag: England; U+1F3F4 U+E0067 U+E0062 U+E0065 U+E006E U+E0067 U+E007F
 🏴󠁧󠁢󠁳󠁣󠁴󠁿 flag: Scotland; U+1F3F4 U+E0067 U+E0062 U+E0073 U+E0063 U+E0074 U+E007F
 🏴󠁧󠁢󠁷󠁬󠁳󠁿 flag: Wales; U+1F3F4 U+E0067 U+E0062 U+E0077 U+E006C U+E0073 U+E007F
+ firefox: f269
+ i_linux_alpine
+ i_linux_aosc
+ i_linux_apple
+ i_linux_archlinux
+ i_linux_centos
+ i_linux_coreos
+ i_linux_debian
+ i_linux_devuan=$i
+ i_linux_docker=$i
+ i_linux_elementary=$i
+ i_linux_fedora=$i
+ i_linux_fedora_inverse=$i
+ i_linux_freebsd=$i
+ i_linux_gentoo=$i
+ i_linux_linuxmint=$i
+ i_linux_linuxmint_inverse
+ i_linux_mageia=$i
+ i_linux_mandriva=$i
+ i_linux_manjaro=$i
+ i_linux_nixos=$i
+ i_linux_opensuse=$i
+ i_linux_raspberry_pi=$i
+ i_linux_redhat=$i
+ i_linux_sabayon=$i
+ i_linux_slackware=$i
+ i_linux_slackware_inverse
+ i_linux_tux=$i
+ i_linux_ubuntu=$i
+ i_linux_ubuntu_inverse=$i
+

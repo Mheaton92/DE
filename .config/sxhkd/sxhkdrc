@@ -30,15 +30,15 @@ super + shift + m
 
 # Et cetera...
 super + grave
-	dmenuunicode
+	~/.local/bin/cmds/dmenuunicode
 super + Scroll_Lock
 	killall screenkey || screenkey
 super + Insert
 	showclip
 super + shift + x
-	prompt "Shutdown computer?" "sudo -A shutdown -h now"
-super + shift + BackSpace
-	prompt "Reboot computer?" "sudo -A shutdown -r now"
+	~/.local/bin/cmds/prompt "Shutdown computer?" "sudo -A shutdown -h now"
+SUper + shift + Delete
+	~/.local/bin/cmds/prompt "Reboot computer?" "sudo -A shutdown -r now"
 super + x
 	mpc pause; pauseallmpv; i3lock -e -f -c 1d2021; xset dpms force off
 XF86Launch1
@@ -113,3 +113,18 @@ super + F11
 super + F12
 	$TERMINAL -e sudo -A nmtui
 
+
+XF86AudioMute
+	lmc mute
+XF86AudioLowerVolume
+	 lmc down 5
+Shift+XF86AudioLowerVolume
+	lmc down 10
+Control+XF86AudioLowerVolume
+	lmc down 1
+XF86AudioRaiseVolume
+	lmc up 5
+Shift+XF86AudioRaiseVolume
+	lmc up 10
+Control+XF86AudioRaiseVolume
+	lmc up 1
