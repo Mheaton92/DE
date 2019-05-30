@@ -53,6 +53,7 @@ alias ka="killall" \
 	kbl='feh ~/.config/kblayout.png' \
 	clean="make clean && rm -f config.h && git reset --hard origin/master" \
 	install="make && sudo make clean install" \
+	homep="surf ~/repos/Tiles/index.html" \
 
 
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.

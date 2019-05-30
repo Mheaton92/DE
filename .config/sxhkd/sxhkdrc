@@ -1,28 +1,20 @@
 #Basic binds
 super + v ; {n,s,p}
 	{$TERMINAL -e nvim,subl3,pycharm}
-super + Return
-	$TERMINAL
+super + {_, shift + } Return
+	{$TERMINAL,$ALTTERM}
 super + d
 	dmenu_run
-super + r
-	$TERMINAL -e $FILE
-super + m
-	$TERMINAL -e ncmpcpp
-super + n
-	$TERMINAL -e newsboat
-super + i
-	$TERMINAL -e gotop
+super + {r,m,n,i,y}
+	$TERMINAL -e {$FILE,ncmpcpp,newsboat,gotop,calcurse}
 super + y
-	$TERMINAL -e calcurse
+	st -e calurse
 super + shift + a
 	$TERMINAL -e pulsemixer; pkill -RTMIN+10 i3blocks
 super + shift + c
 	camtoggle
-super + w
-	webby | xargs -r $BROWSER
-super + shift + w
-	$BROWSER
+super + {_, shift +} w
+	{$BROWSER,surf /home/matthew/.config/Tiles/index.html}
 super + shift + g
 	gimp
 super + shift + m
@@ -40,7 +32,7 @@ super + shift + x
 SUper + shift + Delete
 	~/.local/bin/cmds/prompt "Reboot computer?" "sudo -A shutdown -r now"
 super + x
-	mpc pause; pauseallmpv; i3lock -e -f -c 1d2021; xset dpms force off
+	mpc pause; pauseallmpv; betterlockscreen -l dim; xset dpms force off
 XF86Launch1
 	xset dpms force off
 
@@ -50,7 +42,7 @@ Print
 	maim pic-full-$(date '+%y%m%d-%H%M-%S').png
 # Pick screenshot type
 shift + Print
-	maimpick
+	~/.local/bin/cmds/maimpick
 # Record audio or video
 super + Print
 	dmenurecord

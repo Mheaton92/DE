@@ -33,7 +33,7 @@ vol(){
 }
 
 while true; do
-	xsetroot -name " $(disc) | $(cpu) | $(mem) | $(vol) | $(dte)"
+	xsetroot -name " $(disc) | $(cpu) | $(vol) | $(dte)"
 	sleep 2s
 done &
 
