@@ -5,9 +5,12 @@ HISTSIZE= HISTFILESIZE= # Infinite history.
 export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\] \[$(tput sgr0)\]"
 
 
-[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc" # Load shortcut aliases
-[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+[ -f "$HOME/.local/bin/aliases/bm/shortcutrc" ] && source "$HOME/.local/bin/aliases/bm/shortcutrc" # Load shortcut aliases
+[ -f "$HOME/.local/bin/aliases/aliasrc" ] && source "$HOME/.local/bin/aliases/aliasrc"
+#[ -f "$HOME/.local/bin/aliases/git" ] && source "$HOME/.local/bin/aliases/git"
+[ -f "$HOME/.local/bin/aliases/pacman" ] && source "$HOME/.local/bin/aliases/pacman"
 #add dwm aliases
+source ~/.local/bin/aliases/git
 
 if [ -f ~/.aliases ]; then
     . ~/.aliases

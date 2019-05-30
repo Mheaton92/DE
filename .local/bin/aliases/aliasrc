@@ -1,19 +1,16 @@
-
-
 #!/bin/sh
+	# General aliases
 alias ka="killall" \
 	mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
 	calcurse="calcurse -D ~/.config/calcurse" \
 	magit="nvim -c Magit" \
 	SS="sudo systemctl" \
 	f="ranger" \
-	g="git" \
 	trem="transmission-remote" \
 	e="$EDITOR" \
 	v="$EDITOR" \
 	x="sxiv -ft *" \
 	sdn="sudo shutdown -h now" \
-	gua="git remote | xargs -L1 git push --all" \
 	l="lsd" \
 	ll="lsd -la"\
 	grep="grep --color=auto" \
@@ -23,32 +20,12 @@ alias ka="killall" \
 	yta="yt -x -f bestaudio/best" \
 	YT="youtube-viewer" \
 	ref="shortcuts >/dev/null; source ~/.config/shortcutrc" \
-	upc="sudo pacman -Syu; pkill -RTMIN+8 i3blocks" \
 	lsp="pacman -Qett --color=always | less" \
 	ffmpeg="ffmpeg -hide_banner" \
 	nfch="neofetch" \
 	mkd="mkdir -pv" \
 	venv="sh ~/.scripts/tools/venv.sh" \
 	weather="curl wttr.in" \
-	pacfiles='pacman -Fs' \
-	pacfileupg='sudo pacman -Fy' \
-	pacin='sudo pacman -S' \
-	pacins='sudo pacman -U' \
-	pacinsd='sudo pacman -S --asdeps' \
-	pacloc='pacman -Qi' \
-	paclocs='pacman -Qs' \
-	pacls='pacman -Ql' \
-	paclsorphans='sudo pacman -Qdt' \
-	pacmir='sudo pacman -Syy' \
-	pacown='pacman -Qo' \
-	pacre='sudo pacman -R' \
-	pacref='cat /home/matthew/.config/pacref' \
-	pacrem='sudo pacman -Rns' \
-	pacrep='pacman -Si' \
-	pacreps='pacman -Ss' \
-	pacrmorphans='sudo pacman -Rs $(pacman -Qtdq)' \
-	pacupd='sudo pacman -Sy' \
-	pacupg='sudo pacman -Syu' \
 	spt='speedtest' \
 	kbl='feh ~/.config/kblayout.png' \
 	clean="make clean && rm -f config.h && git reset --hard origin/master" \
