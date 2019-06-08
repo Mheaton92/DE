@@ -1,6 +1,9 @@
 #!/bin/sh
+
+setxkbmap -option caps:super -variant dvorak && killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape' &
+xmodmap -e 'keycode 135 = Super_R' &
 # Bind keys
-sxhkd &
+sxhkd -m 1 &
 
 # Only for my desktop system
 sh ~/.screenlayout/line.sh &
@@ -9,12 +12,12 @@ sh ~/.screenlayout/line.sh &
 #feh --bg-scale /home/matthew/.config/wall.png &
 wal -c &
 wal -i /home/matthew/.config/wall.png &
-feh --bg-center --no-xinerama --image-bg black ~/.config/wall.png &
+feh --bg-fill --no-xinerama  ~/.config/wall.png &
 
 #Adding transpacency and shadows
 compton -bcCG --shadow-radius 10 -l -10 -t -10 --shadow-red 0.8 --shadow-green 0.0 --shadow-blue 1.0 --shadow-exclude '!focused' &
 
-xset r rate 300 50 &	# Speed xrate up
+xset r rate 450 60 &	# Speed xrate up
 unclutter &		# Remove mouse when idle
 dunst &			# dunst for notifications
 

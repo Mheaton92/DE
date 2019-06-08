@@ -1,4 +1,13 @@
 #!/bin/sh
+testweather() { \
+	[ "$(stat -c %y "$HOME/.local/share/weatherreport" 2>/dev/null | cut -d' ' -f1)" != "$(date '+%Y-%m-%d')" ] &&
+		ping -q -c 1 1.1.1.1 >/dev/null &&
+		curl -s "wttr.in/$location" > "$HOME/.local/share/weatherreport" &&
+		notify-send "🌞 Weather" "New weather forecast for today." &&
+		refbar
+		}
+
+
 dte(){
 	dte=$(date +"%a %b %d %I:%M%p")
 	echo -e "🕐 $dte"
@@ -31,9 +40,16 @@ vol(){
 	fi
 
 }
+wttr(){
+	[ "$(stat -c %y "$HOME/.local/share/weatherreport" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ] &&
+		sed '16q;d' "$HOME/.local/share/weatherreport" | grep -wo "[0-9]*%" | sort -n | sed -e '$!d' | sed -e "s/^/ /g" | tr -d '\n' &&
+		sed '13q;d' "$HOME/.local/share/weatherreport" | grep -o "m\\(-\\)*[0-9]\\+" | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print " ",$1 "°","",$2 "°"}'
+}
+
 
 while true; do
-	xsetroot -name " $(disc) | $(cpu) | $(vol) | $(dte)"
-	sleep 2s
+	xsetroot -name "$(wttr) | $(disc) | $(cpu) | $(vol) | $(dte)"
+	testweather &
+	sleep 1s
 done &
 

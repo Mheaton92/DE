@@ -1,22 +1,31 @@
 #Basic binds
 super + v ; {n,s,p}
 	{$TERMINAL -e nvim,subl3,pycharm}
+
 super + {_, shift + } Return
 	{$TERMINAL,$ALTTERM}
+
 super + d
-	dmenu_run
-super + {r,m,n,i,y}
-	$TERMINAL -e {$FILE,ncmpcpp,newsboat,gotop,calcurse}
+	dmen.sh
+
+super + {r,m,n,i,y,a}
+	$TERMINAL -e {$FILE,ncmpcpp,newsboat,gotop,calcurse,bc}
+
 super + y
 	st -e calurse
+
 super + shift + a
 	$TERMINAL -e pulsemixer; pkill -RTMIN+10 i3blocks
+
 super + shift + c
 	camtoggle
-super + {_, shift +} w
-	{$BROWSER,surf /home/matthew/.config/Tiles/index.html}
+
+super + w ; {f,d,h,y,r}
+	{firefox,surf duckduckgo.com,surf ~/.config/Tiles/index.html,firefox https://youtube.com,firefox https://reddit.com}
+
 super + shift + g
 	gimp
+
 super + shift + m
 	spotify
 
@@ -28,11 +37,11 @@ super + Scroll_Lock
 super + Insert
 	showclip
 super + shift + x
-	~/.local/bin/cmds/prompt "Shutdown computer?" "sudo -A shutdown -h now"
-SUper + shift + Delete
+	prompt "Shutdown computer?" "sudo -A shutdown -h now"
+super + shift + Delete
 	~/.local/bin/cmds/prompt "Reboot computer?" "sudo -A shutdown -r now"
 super + x
-	mpc pause; pauseallmpv; betterlockscreen -l dim; xset dpms force off
+	mpc pause; pauseallmpv; betterlockscreen --text "Hello, Matthew" -l dimblur; xset dpms force off
 XF86Launch1
 	xset dpms force off
 
@@ -53,28 +62,19 @@ super + Delete
 # Pause audio
 super + {_,shift +} p
 	lmc {toggle,pause}
-# Changes to next/previous tracks
-super + {comma,period}
-	lmc {prev,next}
-# Restart track
-super + shift + less
-	lmc replay
 # Increase volume
 super + {equal,plus}
-	lmc up {5,15}
+	lmc up {5,15}; refbar
 # Decrease volume
 super {_,shift +} + minus
 	lmc down {5,15}
-# Seek foward in song
-super + {_,shift +} bracketright
-	lmc forward {10,120}
-# Seek backward in song
-super + {_,shift +} bracketleft
-	lmc back {10,120}
+
 
 # Function keys
 # F2 is restart in i3 right now.
 # Change display
+super + shift + F3
+	pkill -USR1 -x sxhkd
 super + F3
 	displayselect
 # Hibernate
@@ -98,7 +98,7 @@ super + F9
 # Unmount a USB drive or Android device
 super + F10
 	dmenuumount
-# Search with Duckduckgo
+# Search with Duckduckgo kind of useless now that i will be using surfo
 super + F11
 	ducksearch
 # Network Manager interface
@@ -107,16 +107,16 @@ super + F12
 
 
 XF86AudioMute
-	lmc mute
+	lmc mute; refbar
 XF86AudioLowerVolume
 	 lmc down 5
-Shift+XF86AudioLowerVolume
+shift+XF86AudioLowerVolume
 	lmc down 10
-Control+XF86AudioLowerVolume
+control+XF86AudioLowerVolume
 	lmc down 1
 XF86AudioRaiseVolume
 	lmc up 5
-Shift+XF86AudioRaiseVolume
+shift+XF86AudioRaiseVolume
 	lmc up 10
-Control+XF86AudioRaiseVolume
+control+XF86AudioRaiseVolume
 	lmc up 1
