@@ -7,7 +7,8 @@ super + {_, shift + } Return
 
 super + d
 	dmen.sh
-
+super + shift + d
+	discord
 super + {r,m,n,i,y,a}
 	$TERMINAL -e {$FILE,ncmpcpp,newsboat,gotop,calcurse,bc}
 
