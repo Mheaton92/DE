@@ -1,9 +1,9 @@
 #!/bin/sh
 
-setxkbmap -option caps:super -variant dvorak && killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape' &
+#setxkbmap -option caps:super -variant dvorak && killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape' &
 xmodmap -e 'keycode 135 = Super_R' &
 # Bind keys
-sxhkd -m 1 &
+sxhkd &
 
 # Only for my desktop system
 sh ~/.screenlayout/line.sh &

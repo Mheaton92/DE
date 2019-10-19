@@ -1,44 +1,32 @@
 #Basic binds
 super + v ; {n,s,p}
 	{$TERMINAL -e nvim,subl3,pycharm}
-
-super + {_, shift + } Return
-	{$TERMINAL,$ALTTERM}
-
+super + Return
+	$TERMINAL
 super + d
-	dmen.sh
-
-super + shift + d
-	discord
-
-super + {r,n,i,y,a}
-	$TERMINAL -e {$FILE,newsboat,gotop,calcurse,bc}
-
-super + t
-	thunar
-
-super + m ; {l,y}
-	$TERMINAL -e {ncmpcpp,mpsyt}
-
+	dmenu_run
+super + r
+	$TERMINAL -e $FILE
+super + m
+	$TERMINAL -e ncmpcpp
+super + n
+	$TERMINAL -e newsboat
+super + i
+	$TERMINAL -e gotop
 super + y
-	st -e calurse
-
+	$TERMINAL -e calcurse
 super + shift + a
 	$TERMINAL -e pulsemixer; pkill -RTMIN+10 i3blocks
-
 super + shift + c
 	camtoggle
-
-super + w ; {f,d,h,y,r}
-	{firefox,surf duckduckgo.com,surf ~/.config/Tiles/index.html,firefox https://youtube.com,firefox https://reddit.com}
-
+super + w
+	webby | xargs -r $BROWSER
+super + shift + w
+	$BROWSER
 super + shift + g
 	gimp
-
 super + shift + m
 	spotify
-super + s
-	steam
 
 # Et cetera...
 super + grave
@@ -48,11 +36,11 @@ super + Scroll_Lock
 super + Insert
 	showclip
 super + shift + x
-	prompt "Shutdown computer?" "sudo -A shutdown -h now"
-super + shift + Delete
+	~/.local/bin/cmds/prompt "Shutdown computer?" "sudo -A shutdown -h now"
+SUper + shift + Delete
 	~/.local/bin/cmds/prompt "Reboot computer?" "sudo -A shutdown -r now"
 super + x
-	mpc pause; pauseallmpv; betterlockscreen --text "Hello, Matthew" -l dimblur; xset dpms force off
+	mpc pause; pauseallmpv; i3lock -e -f -c 1d2021; xset dpms force off
 XF86Launch1
 	xset dpms force off
 
@@ -62,7 +50,7 @@ Print
 	maim pic-full-$(date '+%y%m%d-%H%M-%S').png
 # Pick screenshot type
 shift + Print
-	~/.local/bin/cmds/maimpick
+	maimpick
 # Record audio or video
 super + Print
 	dmenurecord
@@ -73,19 +61,28 @@ super + Delete
 # Pause audio
 super + {_,shift +} p
 	lmc {toggle,pause}
+# Changes to next/previous tracks
+super + {comma,period}
+	lmc {prev,next}
+# Restart track
+super + shift + less
+	lmc replay
 # Increase volume
 super + {equal,plus}
-	lmc up {5,10}; refbar
+	lmc up {5,15}
 # Decrease volume
 super {_,shift +} + minus
-	lmc down {5,10}
-
+	lmc down {5,15}
+# Seek foward in song
+super + {_,shift +} bracketright
+	lmc forward {10,120}
+# Seek backward in song
+super + {_,shift +} bracketleft
+	lmc back {10,120}
 
 # Function keys
 # F2 is restart in i3 right now.
 # Change display
-super + shift + F3
-	pkill -USR1 -x sxhkd
 super + F3
 	displayselect
 # Hibernate
@@ -109,7 +106,7 @@ super + F9
 # Unmount a USB drive or Android device
 super + F10
 	dmenuumount
-# Search with Duckduckgo kind of useless now that i will be using surfo
+# Search with Duckduckgo
 super + F11
 	ducksearch
 # Network Manager interface
@@ -117,3 +114,17 @@ super + F12
 	$TERMINAL -e sudo -A nmtui
 
 
+XF86AudioMute
+	lmc mute
+XF86AudioLowerVolume
+	 lmc down 5
+Shift+XF86AudioLowerVolume
+	lmc down 10
+Control+XF86AudioLowerVolume
+	lmc down 1
+XF86AudioRaiseVolume
+	lmc up 5
+Shift+XF86AudioRaiseVolume
+	lmc up 10
+Control+XF86AudioRaiseVolume
+	lmc up 1

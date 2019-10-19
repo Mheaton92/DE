@@ -31,6 +31,8 @@ alias ka="killall" \
 	clean="make clean && rm -f config.h && git reset --hard origin/master" \
 	install="make && sudo make clean install" \
 	homep="surf ~/repos/Tiles/index.html" \
+	pac="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'" \
+	shortcuts="cat .local/bin/aliases/bm/shortcutrc"\
 
 
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
