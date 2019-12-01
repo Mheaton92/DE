@@ -17,3 +17,4 @@ if [ -f ~/.aliases ]; then
 fi
 
 export VISUAL=nvim
+source <(kitty + complete setup bash)

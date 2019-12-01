@@ -5,8 +5,8 @@
 #:export PATH="$(du $HOME/.scripts/ | cut -f2 | tr '\n' ':')$PATH"
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export EDITOR="nvim"
-export TERMINAL="st"
-export ALTTERM="kitty"
+export TERMINAL="kitty"
+export ALTTERM="st"
 export BROWSER="firefox"
 export READER="zathura"
 export FILE="ranger"
@@ -29,3 +29,7 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 [ ! -f ~/.local/bin/aliases/bm/shortcutrc ] && shortcuts >/dev/null 2>&1
 
 echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
+
+
+# Switch escape and caps if tty:
+sudo -n loadkeys ~/.local/bin/ttymaps.kmap 2>/dev/null
